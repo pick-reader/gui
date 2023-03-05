@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Live Streaming</h3>
+    <img src="{{ url_for('vid') }}" class="frame">
+    <div>
+        <button onclick="location.href='./compute'" class="btnCompute">Capture</button>
+    </div>
+</body>
+
+</html>

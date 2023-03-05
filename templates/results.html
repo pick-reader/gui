@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <title>Results</title>
+</head>
+
+<body>
+    <h3>Results</h3>
+    <img src="{{ path }}" class="frame">
+    <div class="parent">
+        <div class="child">
+            <button onclick="location.href='./'" class="btnBack shadow">Back</button>
+        </div>
+        <div class="child cont shadow">
+            <div class="details">Weft: {{ weft }}</div>
+            <div class="details">Warp: {{ warp }}</div>
+            <div class="details">Cloth Type: {{ cloth }}</div>
+        </div>
+    </div>
+</body>
+
+</html>
