@@ -1,9 +1,10 @@
-from flask import Flask, render_template, Response, url_for
+from flask import Flask, render_template, Response, url_for, request
 import cv2
 import os
 import json
 from camera import gen_frames, save_frame
 from weftwarp import weft_warp
+from pwmLed import ledBrightness
 
 app = Flask(__name__)
 
@@ -25,5 +26,11 @@ def compute():
 	ret = json.loads(ret)
 	print(ret)
 	return render_template('results.html', path=IMG_PATH, weft=ret['weft'], warp=ret['warp'])
+
+@app.route('/led')
+def led():
+	duty = int(request.args.get('duty'))
+	ledBrightness(duty)
+	return "ok"
 
 app.run(host='0.0.0.0', port=8000)
