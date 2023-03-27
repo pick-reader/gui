@@ -1,0 +1,57 @@
+body{
+    background-color: wheat;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-flow: column;
+}
+
+.title{
+    background-color: white;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
+
+.up, .down{
+    flex: 9;
+    display: flex;  
+    flex-direction: row;
+    margin: 10px;
+    column-gap: 10px;
+}
+
+.menuItem{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    background-color: aqua;
+}
+
+.menuBox{
+    width: 100px;
+    height: 80px;
+    padding: 10px 20px;
+    margin: 0px auto;
+    border-radius: 12px;
+    text-align: center;
+    background-color: red;
+}
+
+.menuText{
+    background-color: blue;
+    width: 50%;
+    margin: 0px auto;
+    text-align: center;
+    font-size: large;
+}
