@@ -1,0 +1,56 @@
+body{
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+}
+
+.title{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.up{
+    display: flex;  
+    flex-direction: row;
+}
+
+.preview{
+    position: relative;
+    width: 65vw;
+    height: 60vh;
+    background-color: olive;
+    padding: 10px;
+    margin: 10px 30px;
+}
+
+.previewTitle{
+    position: absolute;
+    top: 0;
+    left: 25px;
+    width: 90%;
+    color: white;
+    background-color: orange;
+}
+
+.previewImg{
+    width: 90%;
+    height: 300px;
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    background-color: blue;
+    border-radius: 12px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+
+.infoBar{
+    background-color: bisque;
+}
