@@ -1,4 +1,5 @@
 body{
+    background-color: wheat;
     margin: 0px;
     padding: 0px;
     display: flex;
@@ -15,10 +16,31 @@ body{
     margin-bottom: 10px;
 }
 
+
+.heading{
+    background-color: orange;
+    color: white;
+    width: auto;
+    margin: 10px 80px;
+    margin-bottom: 0px;
+    border-radius: 12px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    padding: 5px;
+
+}
+
+
 .content{
     display: flex;
     flex-direction: column;
-    height: 400px;
+    height: 370px;
+    border: 5px solid orange;
+    border-radius: 12px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    margin: 10px 80px;
+    margin-top: 0px;
 }
 
 .up, .down{
@@ -33,7 +55,6 @@ body{
     flex: 1;
     display: flex;
     flex-direction: column;
-    margin: 10px;
 }
 
 .menuBox{
@@ -44,15 +65,16 @@ body{
     border-radius: 12px;
     text-align: center;
     background-color: gray;
-    border: 2px solid black;
+    border: 2px solid rgb(10, 10, 10);
 }
 
 .menuText{
-    width: fit-content;
-    margin: 0px auto;
+    width: 75%;
+    margin: 10px auto;
     text-align: center;
     font-size: large;
-    border: 2px orange solid;
-    border-radius: 8px;
-    padding: 4px;
+}
+
+.heading{
+    text-align: center;
 }
