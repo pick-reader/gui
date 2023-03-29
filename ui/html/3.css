@@ -1,9 +1,17 @@
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Poppins'), url('./Fonts/Poppins-Medium.otf') format('opentype');
+  }
+
 body{
     background-color: white;
     margin: 0px;
     padding: 0px;
     display: flex;
     flex-flow: column;
+    font-family: 'Poppins';
 }
 
 .title{
@@ -39,6 +47,7 @@ body{
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
     font-size: larger;
+    padding-bottom: 4px;
 }
 .r1
 {
@@ -53,7 +62,6 @@ body{
 {
     color:white;
     font-size: x-large;
-    font-weight: bold;
 }
 
 
@@ -72,14 +80,13 @@ body{
     margin: 0px auto;
     border-radius: 12px;
     text-align: center;
-    background-color: red;
-    border: solid blue;
+    background-color: gray;
+    border: solid black;
 }
 
 .menuText{
-    background-color: blue;
     width: 50%;
-    margin: 0px auto;
+    margin: 10px auto;
     text-align: center;
     font-size: large;
 }
