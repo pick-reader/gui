@@ -45,7 +45,7 @@ body{
     display:flex;
     column-gap: 30px;
     margin-left: 30px;
-    margin-top: 10px;
+    margin-top: 25px;
 }
 .r2
 {
@@ -120,13 +120,16 @@ body{
 }
 .bottom
 {
-    background-color: red;
     margin-top: 30px;
     align-self: center;
 }
 .button
 {
-    width:125px;
+    width:min-content;
+    padding: 5px 40px;
     background-color:rgb(32, 90, 238);
     color:white;
+    border-radius: 6px;
+    text-align: center;
+
 }

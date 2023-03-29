@@ -48,11 +48,11 @@ body{
 }
 
 .menuText{
-    width: fit-content;
+    width: min-content;
     margin: 0px auto;
     text-align: center;
     font-size: large;
-    border: 2px orange solid;
+    border: 2px gray solid;
     border-radius: 8px;
     padding: 4px;
 }
