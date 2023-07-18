@@ -223,6 +223,7 @@ def weft_warp(path: str):
         #if i==centroid_y and j<centroid_x1 and ps1[i][j]>1:
             #vertical_index.append(j)
             #vertical.append(ps1[i,j])
+        
     tdlist1=[]
     for i in grouper(horizontal_index):
         tdlist1.append(i)
@@ -230,6 +231,7 @@ def weft_warp(path: str):
         for j in i:
             if(j>=(centroid_y1-8)):
                 tdlist1.remove(i)
+                    
     tdlist2=[]
     for i in grouper(vertical_index):
         tdlist2.append(i)
@@ -237,8 +239,19 @@ def weft_warp(path: str):
         for j in i:
             if(j>=(centroid_x-8)):
                 tdlist2.remove(i)
+                    
     warp_value_list=max(tdlist2, key=len)
+    for i in tdlist2:
+        if len(i)==len(warp_value_list) and i != warp_value_list :
+            if(i[0]>warp_value_list[0]):
+                warp_value_list=i
+                    
     weft_value_list=max(tdlist1, key=len)
+    for i in tdlist1:
+        if len(i)==len(weft_value_list) and i != weft_value_list :
+            if(i[0]>weft_value_list[0]):
+                weft_value_list=i
+                    
     max_weft,max_bright=0,0
     for i in weft_value_list:
         if(ps1[i][centroid_x1]>max_bright):       
