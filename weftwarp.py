@@ -14,20 +14,6 @@ import json
 
 import scipy.ndimage as inter
 
-def count(image):
-        amount = 250
-        radius = 75
-        blurred = cv2.GaussianBlur(image, (radius*2+1, radius*2+1), 0)
-        unsharp = cv2.addWeighted(image, 1.0 + amount/100.0, blurred, -amount/100.0, 0)
-        imgGray = rgb2gray(unsharp)
-        image = preprocessing.Binarizer(threshold=0.5).transform(imgGray)
-        tested_angles = np.linspace(89.2/180*np.pi, 90.25/180*np.pi, 1)
-
-        hspace, theta, dist = hough_line(image, tested_angles)  
-        h, q, d = hough_line_peaks(hspace, theta, dist)
-        angle_list=[]  
-        origin = np.array((0, image.shape[1])) 
-        return len(h)
 def largest_rotated_rect(w, h, angle):
     """
     Given a rectangle of size wxh that has been rotated by 'angle' (in
