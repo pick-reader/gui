@@ -25,22 +25,26 @@ def count(image):
         origin = np.array((0, image.shape[1])) 
         return len(h)
     
-def weft_warp(path: str):
-    img_weft = io.imread(path)
+def weft_warp(path):
+#    img_weft = io.imread(path)
+    img_weft=path
+
 #    img_weft = img_weft[0:200, 0:200]
     img_warp=cv2.rotate(img_weft, cv2.ROTATE_90_CLOCKWISE)
     weft=count(img_weft)
     warp=count(img_warp)
-    #cloth=cloth_type(path)
+#    cloth=cloth_type(path)
     img_ret = cv2.resize(img_weft, (int(300*0.9), int(200*0.9)))
     return json.dumps({
         'weft': weft,
         'warp': warp
     })
+
 def cloth_type(image):
-        interpreter = Interpreter(model_path=r"/home/pi/lo/warp-weft-counting/linear1.tflite")
+        interpreter = Interpreter(model_path=r"/home/pi/flask_cam/linear1.tflite")
         interpreter.allocate_tensors()
         input_index=interpreter.get_input_details()
+#        img2 = image
         img=Image.open(image).resize((300,300))
 #        Image.Resampling.LANCZOS
         im=np.array(img,dtype=np.float32)
