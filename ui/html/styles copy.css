@@ -1,0 +1,78 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-flow: column;
+}
+
+.title{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.up{
+    display: flex;  
+    flex-direction: row;
+    margin: 10px;
+    column-gap: 10px;
+}
+
+.preview{
+    flex: 2;
+    display: flex;  
+    flex-direction: column;
+    padding: 10px;
+}
+
+.previewTitle{
+    color: white;
+    font-size: x-large;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    font-weight: bold;
+    background-color: orange;
+    border-radius: 12px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.previewImg{
+    height:250px;
+    background-color: burlywood;
+    border-radius: 12px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+
+.infoBar{
+    flex: 1;
+    font-size: x-large;
+}
+
+.down{
+    display: flex;
+    flex-direction: row;
+    column-gap: 40px;
+    color: white;
+
+}
+
+.btn{
+    background-color: gray;
+    flex: 1;
+    margin: 10px;
+    padding: 5px 20px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: x-large;
+    
+}
+
+.menuItem{
+    background-color: red;
+}

@@ -1,0 +1,92 @@
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Poppins'), url('./Fonts/Poppins-Medium.otf') format('opentype');
+  }
+
+body{
+    background-color: white;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-flow: column;
+    font-family: 'Poppins';
+}
+
+.title{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.content{
+    display: flex;  
+    flex-direction: row;
+    margin: 10px;
+    height:250px;
+    margin-top: 60px;
+    background-color: white;
+    column-gap: 10px;
+    width:60%;
+    align-self: center;
+    vertical-align:middle;
+    border-radius: 8px;
+    border:solid rgb(255, 132, 25);
+    border-width: 4px;
+}
+.topbar
+{
+    width:100%;
+    height:30px;
+    background-color:rgb(255, 132, 25);
+    text-align:center ;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    font-size: larger;
+    padding-bottom: 4px;
+}
+.r1
+{
+    display:flex;
+    column-gap: 30px;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+
+.t
+{
+    color:white;
+    font-size: x-large;
+}
+
+
+.menuItem{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-right: 20px;
+}
+
+.menuBox{
+    width: 100px;
+    height: 80px;
+    padding: 10px 20px;
+    margin: 0px auto;
+    border-radius: 12px;
+    text-align: center;
+    background-color: gray;
+    border: solid black;
+}
+
+.menuText{
+    width: 50%;
+    margin: 10px auto;
+    text-align: center;
+    font-size: large;
+}

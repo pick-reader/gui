@@ -14,6 +14,17 @@ html{
     border-radius: 18px;
 }
 
+.result_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.result_frame {
+  padding: 12px;
+  width: 45%;
+  border-radius: 18px;
+}
 
 .btnCompute {
     font-size: 100px;
