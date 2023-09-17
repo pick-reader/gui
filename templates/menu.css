@@ -1,0 +1,44 @@
+body{
+    background-color: bisque;
+}
+.logo{
+    float: left;
+    border-style: solid;
+    border-radius: 3px;
+    border-width: 2px;
+}
+.title{
+    margin-left: 345px;
+    align-self: center;
+    font-size: large;
+}
+.subtitle{
+    text-align: center;
+    align-self: center;
+    font-size: medium;
+    background-color: azure;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    width: 100%;
+}
+.items{
+    align-self: center;
+    align-content: center;
+    text-align: center;
+    padding: 5px;
+}
+
+.butt{
+    border-style: solid;
+    border-radius: 6px;
+    background-color:chocolate;
+    text-align: center;
+    color: white;
+    padding: 18px;
+    margin: 2px;
+}
+
+.txt{
+    align-self: center;
+    text-align: center;
+}
