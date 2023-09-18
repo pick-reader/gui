@@ -1,13 +1,15 @@
+
 from flask import Flask, render_template, Response, url_for, request, send_file
 import cv2
 import os
 import json
 from camera import gen_frames, save_frame
-from weftwarp import weft_warp #, cloth_type
+from weftwarp import weft_warp, cloth_type
 from pwmLed import ledBrightness
 
 weft_img = None
 warp_img = None
+cap_img = None
 
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
@@ -39,16 +41,17 @@ def vid():
 
 @app.route('/compute')
 def compute():
-	global weft_img, warp_img
+	global weft_img, warp_img, cap_img
 	img=save_frame(OS_IMG_SAVE_PATH)
-	ret, weft_img, warp_img = weft_warp('.' + IMG_PATH)
+	cap_img = img
+	ret, weft_img, warp_img = weft_warp(OS_IMG_SAVE_PATH)
 #	ret=weft_warp(img)
 	print(ret)
-	cloth = "lol" #cloth_type(OS_IMG_SAVE_PATH)
+	cloth = cloth_type(OS_IMG_SAVE_PATH)
 	ret = json.loads(ret)
 	##print(ret)
 #	return render_template('results.html', path=IMG_PATH, weft=ret['weft'], warp=ret['warp'], cloth=cloth)
-	return render_template('results.html', weft=ret['weft'], warp=ret['warp'], cloth="5")
+	return render_template('results.html', weft=ret['weft'], warp=ret['warp'], cloth=cloth)
 
 @app.route('/led')
 def led():
@@ -74,5 +77,15 @@ def warp_img():
 	ret, buffer = cv2.imencode('.jpg', img)
 	buffer = buffer.tobytes()
 	return Response(b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + buffer + b'\r\n\r\n', mimetype='multipart/x-mixed-replace; boundary=frame')
+
+
+@app.route('/cap_img')
+def cap_img():
+	global cap_img
+	img = cv2.cvtColor(cap_img, cv2.COLOR_BGR2RGB)
+	ret, buffer = cv2.imencode('.jpg', img)
+	buffer = buffer.tobytes()
+	return Response(b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + buffer + b'\r\n\r\n', mimetype='multipart/x-mixed-replace; boundary=frame')
+
 
 app.run(host='0.0.0.0', port=8000)

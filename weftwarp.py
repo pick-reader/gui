@@ -182,82 +182,89 @@ def weft_warp(img):
                 math.radians(angle2)
             )
         )
-    grayimg1=cv.cvtColor(irc_weft, cv.COLOR_BGR2GRAY)
-    grayimg2=cv.cvtColor(irc_warp, cv.COLOR_BGR2GRAY)
 
-    image_array1 = np.array(grayimg1, dtype=np.float64)
-    image_array2 = np.array(grayimg2, dtype=np.float64)
-    ps1, centroid_x1, centroid_y1=power_spectrum(image_array1)
-    ps, centroid_x, centroid_y=power_spectrum(image_array2)
-    horizontal=[]
-#weft
-    horizontal_index=[]
-    vertical=[]
-#warp
-    vertical_index=[]
-    for i in range(0,ps.shape[0]):
-        for j in range(0,ps.shape[1]):
-        #if j==centroid_x and i<centroid_y and ps[i][j]>1:
-            #horizontal.append(ps[i,j])
-            #horizontal_index.append(i)
-            if i==centroid_y and j<centroid_x and ps[i][j]>1:
-                vertical_index.append(j)
-                vertical.append(ps[i,j])
-    for i in range(0,ps1.shape[0]):
-        for j in range(0,ps1.shape[1]):
-            if j==centroid_x1 and i<centroid_y1 and ps1[i][j]>1:
-                horizontal.append(ps1[i,j])
-                horizontal_index.append(i)
-        #if i==centroid_y and j<centroid_x1 and ps1[i][j]>1:
-            #vertical_index.append(j)
-            #vertical.append(ps1[i,j])
-        
-    tdlist1=[]
-    for i in grouper(horizontal_index):
-        tdlist1.append(i)
-    for i in tdlist1:
-        for j in i:
-            if(j>=(centroid_y1-9)):
-                tdlist1.remove(i)
-                    
-    tdlist2=[]
-    for i in grouper(vertical_index):
-        tdlist2.append(i)
-    for i in tdlist2:
-        for j in i:
-            if(j>=(centroid_x-9)):
-                tdlist2.remove(i)
-                    
-    warp_value_list=max(tdlist2, key=len)
-    for i in tdlist2:
-        if len(i)==len(warp_value_list) and i != warp_value_list :
-            if(i[0]>warp_value_list[0]):
-                warp_value_list=i
-                    
-    weft_value_list=max(tdlist1, key=len)
-    for i in tdlist1:
-        if len(i)==len(weft_value_list) and i != weft_value_list :
-            if(i[0]>weft_value_list[0]):
-                weft_value_list=i
-                    
-    max_weft,max_bright=0,0
-    for i in weft_value_list:
-        if(ps1[i][centroid_x1]>max_bright):       
-            max_bright=ps1[i][centroid_x1]
-            max_weft=i
-    max_warp,max_bright=0,0
-    for i in warp_value_list:
-        if(ps[centroid_y][i]>max_bright):       
-            max_bright=ps[centroid_y][i]
-            max_warp=i
+    try:
+        grayimg1=cv.cvtColor(irc_weft, cv.COLOR_BGR2GRAY)
+        grayimg2=cv.cvtColor(irc_warp, cv.COLOR_BGR2GRAY)
 
-    distance_y = max_warp - centroid_x
-    distance_x = max_weft - centroid_y1
-        
-    return json.dumps({
-        'weft': int(str(abs(distance_x))),
-        'warp': int(str(abs(distance_y)))
-    }), cimweft, cimwarp
+        image_array1 = np.array(grayimg1, dtype=np.float64)
+        image_array2 = np.array(grayimg2, dtype=np.float64)
+        ps1, centroid_x1, centroid_y1=power_spectrum(image_array1)
+        ps, centroid_x, centroid_y=power_spectrum(image_array2)
+        horizontal=[]
+    #weft
+        horizontal_index=[]
+        vertical=[]
+    #warp
+        vertical_index=[]
+        for i in range(0,ps.shape[0]):
+            for j in range(0,ps.shape[1]):
+            #if j==centroid_x and i<centroid_y and ps[i][j]>1:
+                #horizontal.append(ps[i,j])
+                #horizontal_index.append(i)
+                if i==centroid_y and j<centroid_x and ps[i][j]>1:
+                    vertical_index.append(j)
+                    vertical.append(ps[i,j])
+        for i in range(0,ps1.shape[0]):
+            for j in range(0,ps1.shape[1]):
+                if j==centroid_x1 and i<centroid_y1 and ps1[i][j]>1:
+                    horizontal.append(ps1[i,j])
+                    horizontal_index.append(i)
+            #if i==centroid_y and j<centroid_x1 and ps1[i][j]>1:
+                #vertical_index.append(j)
+                #vertical.append(ps1[i,j])
+            
+        tdlist1=[]
+        for i in grouper(horizontal_index):
+            tdlist1.append(i)
+        for i in tdlist1:
+            for j in i:
+                if(j>=(centroid_y1-9)):
+                    tdlist1.remove(i)
+                        
+        tdlist2=[]
+        for i in grouper(vertical_index):
+            tdlist2.append(i)
+        for i in tdlist2:
+            for j in i:
+                if(j>=(centroid_x-9)):
+                    tdlist2.remove(i)
+                        
+        warp_value_list=max(tdlist2, key=len)
+        for i in tdlist2:
+            if len(i)==len(warp_value_list) and i != warp_value_list :
+                if(i[0]>warp_value_list[0]):
+                    warp_value_list=i
+                        
+        weft_value_list=max(tdlist1, key=len)
+        for i in tdlist1:
+            if len(i)==len(weft_value_list) and i != weft_value_list :
+                if(i[0]>weft_value_list[0]):
+                    weft_value_list=i
+                        
+        max_weft,max_bright=0,0
+        for i in weft_value_list:
+            if(ps1[i][centroid_x1]>max_bright):       
+                max_bright=ps1[i][centroid_x1]
+                max_weft=i
+        max_warp,max_bright=0,0
+        for i in warp_value_list:
+            if(ps[centroid_y][i]>max_bright):       
+                max_bright=ps[centroid_y][i]
+                max_warp=i
+
+        distance_y = max_warp - centroid_x
+        distance_x = max_weft - centroid_y1
+            
+        return json.dumps({
+            'weft': int(str(abs(distance_x))),
+            'warp': int(str(abs(distance_y)))
+        }), irc_weft, irc_warp
+    except ValueError:
+        return json.dumps({
+            'weft': 0,
+            'warp': 0
+        }), irc_weft, irc_warp
 
 def cloth_type(image):
         interpreter = Interpreter(model_path=r"/home/pi/flask_cam/linear1.tflite")
