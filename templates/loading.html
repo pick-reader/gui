@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <title>Results</title>
+</head>
+
+<body>
+    <h3>Results</h3>
+    <div class="result_container">
+        <div class="loader_skeleton result_frame"></div>
+        <div class="loader_skeleton result_frame"></div>
+    </div>
+    <div class="result_container">
+        <div>Weft Corrected Image</div>
+        <div>Warp Corrected Image</div>
+    </div>
+    <div class="parent">
+        <div class="child">
+            <button onclick="location.href='./'" class="btnBack shadow">Back</button>
+        </div>
+        <div class="child cont shadow">
+            <div class="details">Weft: </div>
+            <div class="details">Warp: </div>
+            <div class="details">Cloth Type: </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    location.href='./compute'
+</script>
+
+</html>

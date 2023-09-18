@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./menu.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
 </head>
 <body>
     <div class="logo">
-        <img src="./rvlogo.jpg" height="40px" width="40px">
+        <img src="{{ url_for('static', filename='img/rvlogo.jpg') }}" height="40px" width="40px">
     </div>
     <div class="title">
         <h1>Menu</h1>
@@ -19,13 +19,13 @@
 
     <div class="items">
         <div class="ww">
-            <button onclick="location.href='./index.html'"  class="butt">Weft Warp Count Per Inch</button>
+            <button onclick="location.href='./?type=Woven'"  class="butt">Weft Warp Count Per Inch</button>
             <div class="txt">
                 <p>For Woven Cloths</p>
             </div>
         </div>
         <div class="kh">
-            <button onclick="location.href='./index.html'"  class="butt">Hole Count</button>
+            <button onclick="location.href='./?type=Knitted'"  class="butt">Hole Count</button>
             <div class="txt">
                 <p>For Knitted Cloths</p>
             </div>

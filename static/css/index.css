@@ -20,11 +20,18 @@ html{
   align-items: center;
 }
 
+.loader_skeleton {
+  background-color: rgb(212, 212, 212);
+  width: 434px;
+  height: 214px;
+}
+
 .result_frame {
   padding: 12px;
   width: 45%;
   border-radius: 18px;
 }
+
 
 .btnCompute {
     font-size: 100px;

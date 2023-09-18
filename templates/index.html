@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <h3>Live Streaming</h3>
+    <h3>{{cur_cloth_type}}</h3>
     <img src="{{ url_for('vid') }}" class="frame">
     <div class="slidecontainer">
         <input type="range" min="0" max="100" value="0" step="10" class="slider" id="slider">
@@ -15,7 +15,7 @@
         <input type="range" min="0" max="100" value="0" step="10" class="slider" id="slider2">
     </div>
     <div>
-        <button onclick="location.href='./compute'" class="btnCompute">Capture</button>
+        <button onclick="location.href='./loading'" class="btnCompute">Capture</button>
     </div>
 </body>
 <script>
